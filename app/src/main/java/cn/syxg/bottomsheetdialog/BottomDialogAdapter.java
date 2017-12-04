@@ -2,6 +2,7 @@ package cn.syxg.bottomsheetdialog;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -19,16 +20,18 @@ public class BottomDialogAdapter extends RecyclerView.Adapter{
     private List<String> list;
 
     public BottomDialogAdapter(Context context, List<String> list) {
+
         this.context = context;
         this.list = list;
+
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        //View inflater = LayoutInflater.from(context).inflate(R.layout.item_text,null,false);
-        View view = View.inflate(context,R.layout.item_text,null);
+        View inflater = LayoutInflater.from(context).inflate(R.layout.item_text,parent,false);
+        //View view = View.inflate(context,R.layout.item_text,null);
 
-        return new NormalViewHolder(view);
+        return new NormalViewHolder(inflater);
     }
 
     @Override
